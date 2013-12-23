@@ -1,9 +1,10 @@
 <?php
 class Router {
 	public function __construct() {
-		if ($_GET['url'] == 0){
+		
+		if (!isset($_GET['url']) || $_GET['url'] == 'index'){
 			$this->url = array('home', 'home', 'home');
-		} else {
+		} else { 
 			$this->url = explode("/", $_GET['url']);
 		}
 		$this->controller = $this->url[0];
